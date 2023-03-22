@@ -19,3 +19,10 @@ export class I3 implements HttpInterceptor {
     }
 }
 
+@Injectable()
+export class globalErrorHandlingInterceptor {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
+    const modified = req.clone({setHeaders: {'Authorization': "bitttttu i3"}});
+    return next.handle(modified);
+  }
+}
