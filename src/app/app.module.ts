@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { I2, I3 } from './interceptors.service';
+import { globalErrorHandlingInterceptor, I2, I3 } from './interceptors.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule ],
@@ -19,6 +19,11 @@ import { I2, I3 } from './interceptors.service';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: I3,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: globalErrorHandlingInterceptor,
       multi: true
     }
   ],

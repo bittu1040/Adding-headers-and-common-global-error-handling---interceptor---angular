@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
 
 
   getPosts() {
-    this.http.get("https://jsonplaceholder.typicode.com/posts/1").subscribe((data)=>{
+    this.http.get("https://jsonplaceholder.typicode.com/posts1/1").subscribe((data)=>{
       this.response1= data;
     })
   }
